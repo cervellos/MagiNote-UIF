@@ -21,13 +21,62 @@ body {
   grid-auto-rown: minmax(250px, auto);
   gap: 20px;
 }
-.note-item {
+.notes-item {
   display: flex;
   flex-direction: column;
-  border: 1px solid #ccc;
-  paddin: 10px;
-  boder-radius: 5px;
-  background-color: white;
-  box-shdow: 0px 0px 10px black;
+  border: 1px solid #ef5716;
+  padding: 10px;
+  border-radius: 5px;
+  background-color: #ef5716;
+  box-shadow: 0px 0px 5px #ef5716;
+  color: black;
+  cursor: pointer;
+}
+
+.notes-header {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.notes-header button {
+  font-size: 16px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  max-width: fot-content;
+}
+
+h2 {
+  margin: 0;
+}
+
+.note-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+textarea,
+input {
+  border.radius: 5px;
+  border: 1px solid #ef5716;
+  padding: 10px;
+  font-size: 16px;
+  background-color: #ef5716;
+  box-shadow: 0px 0px 5px #ef5716;
+}
+.note-form button {
+  border-radius: 5px;
+  background-color: #a0dfd6;
+  border: none;
+  padding: 10px;
+  font-size: 16px;
+  color: white;
+  box-shadow: 0px 0px 10px #a0dfd6;
+}
+
+.note-form button:hover {
+  background-color: #29eba2;
+  box-shadow: 0px 0px 20px #29eba2;
   cursor: pointer;
 }
