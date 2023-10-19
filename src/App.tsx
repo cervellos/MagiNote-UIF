@@ -64,12 +64,37 @@ const App = () => {
     setContent("");
   };
 
+  const handleUpdateNote = (event: React.FormEvent) => {
+    event.preventDefault();
+    if (!selectedNote) {
+      return;
+    }
+
+    const updateNote: Note = {
+      id: selectedNote.id,
+      title: title,
+      content: content,
+    };
+    const updateNotesList = notes.map((note) =>
+      note.id === selectedNote.id ? updateNote : note
+    );
+    setNotes(updateNotesList);
+    setTitle("");
+    setContent("");
+    setSelectedNote(null);
+  };
+
+  const handleCancel = () => {
+    setTitle("");
+    setContent("");
+    setSelectedNote(null);
+  };
   return (
     <div className="app-container">
       <form
         className="note-form"
         onSubmit={(event) => {
-          hanbleAddNote(event);
+          selectedNote ? handleUpdateNote(event) : hanbleAddNote(event);
         }}
       >
         <input
@@ -89,7 +114,14 @@ const App = () => {
           rows={10}
           required
         ></textarea>
-        <button type="submit">Add Note</button>
+        {selectedNote ? (
+          <div className="edit-buttons">
+            <button type="submit">Save</button>
+            <button onClick={handleCancel}>Cancel</button>
+          </div>
+        ) : (
+          <button type="submit">Add Note</button>
+        )}
       </form>
       <div className="notes-grid">
         {notes.map((notes) => (
