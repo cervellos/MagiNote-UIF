@@ -80,3 +80,25 @@ input {
   box-shadow: 0px 0px 20px #29eba2;
   cursor: pointer;
 }
+
+.edit-buttons {
+  display: flex;
+  justify-content: space-evenly;
+  gap: 5px;
+}
+
+.edit-buttons button {
+  flex: 1;
+}
+
+.edit-buttons button:last-of-type {
+  background-color: #d8210f;
+  color: white;
+  box-shadow: 0px 0px 10px #c2261a;
+  text-shadow: 0px 0px 10px red;
+}
+.edit-buttons button:last-of-type:hover {
+  background-color: red;
+  color: white;
+  box-shadow: 0px 0px 10px red;
+}
