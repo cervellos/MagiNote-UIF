@@ -89,6 +89,13 @@ const App = () => {
     setContent("");
     setSelectedNote(null);
   };
+
+  const deleteNote = (event: React.MouseEvent, noteId: number) => {
+    event.stopPropagation();
+
+    const updatedNotes = notes.filter((note) => note.id !== noteId);
+    setNotes(updatedNotes);
+  };
   return (
     <div className="app-container">
       <form
@@ -124,13 +131,13 @@ const App = () => {
         )}
       </form>
       <div className="notes-grid">
-        {notes.map((notes) => (
-          <div className="notes-item" onClick={() => handleNoteClick(notes)}>
+        {notes.map((note) => (
+          <div className="notes-item" onClick={() => handleNoteClick(note)}>
             <div className="notes-header">
-              <button>x</button>
+              <button onClick={(event) => deleteNote(event, note.id)}>x</button>
             </div>
-            <h2>{notes.title}</h2>
-            <p>{notes.content}</p>
+            <h2>{note.title}</h2>
+            <p>{note.content}</p>
           </div>
         ))}
         <div className="notes-item">
